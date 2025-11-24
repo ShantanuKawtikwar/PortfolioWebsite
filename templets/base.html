@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ title }} | Shantanu Kawtikwar</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+<nav class="navbar">
+    <a href="/">Home</a>
+    <a href="/projects">Projects</a>
+    <a href="/timeline">Timeline</a>
+    <a href="/certifications">Certifications</a>
+    <a href="/contact">Contact</a>
+</nav>
+
+<main>
+    {% block content %}{% endblock %}
+</main>
+
+<footer>
+    © 2025 Shantanu Kawtikwar
+</footer>
+
+</body>
+</html>
