@@ -1,16 +1,226 @@
-{% extends "base.html" %}
-{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Projects | Shantanu Kawtikwar</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
-<h2 style="text-align:center;">📌 Projects</h2>
+<style>
 
-<div class="project-container">
-    {% for project in projects %}
-    <div class="card">
-        <h3>{{ project.name }}</h3>
-        <p>{{ project.date }}</p>
-        <p style="font-size:14px;opacity:.7;">{{ project.desc }}</p>
+:root {
+    --bg: #F7F9FC;
+    --card-bg: #ffffff;
+    --accent: #38A3F1;
+    --accent-soft: rgba(56,163,241,.15);
+    --text: #1f2937;
+    --muted: #6b7280;
+    --shadow: 0 16px 34px rgba(0,0,0,0.06);
+    --radius: 18px;
+    --transition: .35s ease;
+}
+
+body {
+    margin: 0;
+    font-family: "Poppins", sans-serif;
+    background: linear-gradient(135deg,#e3f2fd,#fff4e0);
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 1050px;
+    margin: auto;
+    padding: 2rem;
+}
+
+/* HEADER TITLE */
+
+.page-title {
+    text-align: center;
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-bottom: .4rem;
+    background: linear-gradient(135deg,#38A3F1,#F5A623);
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.page-sub {
+    text-align: center;
+    font-size: .9rem;
+    color: var(--muted);
+    margin-bottom: 3rem;
+}
+
+/* GRID */
+
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(270px,1fr));
+    gap: 1.8rem;
+}
+
+/* CARD */
+
+.project-card {
+    background: var(--card-bg);
+    padding: 1.6rem;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    border: 1px solid rgba(56,163,241,0.12);
+    transition: var(--transition);
+    cursor: pointer;
+    position: relative;
+}
+
+.project-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 22px 45px rgba(56,163,241,.28);
+    border-color: var(--accent);
+}
+
+/* TITLE */
+
+.project-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: .4rem;
+    color: var(--text);
+}
+
+/* DESC */
+
+.project-desc {
+    font-size: .88rem;
+    color: var(--muted);
+    margin-bottom: 1rem;
+    line-height: 1.5;
+}
+
+/* TAGS */
+
+.tag-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .4rem;
+    margin-bottom: 1.1rem;
+}
+
+.tag {
+    background: var(--accent-soft);
+    color: var(--accent);
+    padding: .25rem .6rem;
+    border-radius: 50px;
+    font-size: .72rem;
+    font-weight: 500;
+}
+
+/* BUTTON */
+
+.project-btn {
+    display: inline-block;
+    background: var(--accent);
+    color: white;
+    border-radius: 30px;
+    padding: .55rem 1.2rem;
+    font-size: .8rem;
+    text-decoration: none;
+    font-weight: 500;
+    transition: var(--transition);
+}
+
+.project-btn:hover {
+    background: #1d8ce0;
+}
+
+/* BACK BUTTON */
+
+.back-btn {
+    display: inline-block;
+    margin-top: 2.5rem;
+    text-decoration: none;
+    background: var(--accent);
+    color: white;
+    padding: .6rem 1.2rem;
+    border-radius: 50px;
+    font-weight: 500;
+    transition: var(--transition);
+}
+
+.back-btn:hover {
+    background: #1d8ce0;
+}
+
+</style>
+</head>
+<body>
+
+<div class="container" data-aos="fade-up">
+
+    <h1 class="page-title">Projects</h1>
+    <p class="page-sub">A collection of things I've built — experimenting, learning, and improving 🚀</p>
+
+    <div class="project-grid">
+
+        <!-- Project 1 -->
+
+        <div class="project-card" data-aos="zoom-in">
+            <div class="project-title">Task Manager</div>
+            <div class="project-desc">
+                A productivity tool to create, update, and organize tasks with UI-based status tracking.
+            </div>
+
+            <div class="tag-wrap">
+                <span class="tag">Python</span>
+                <span class="tag">Flask</span>
+                <span class="tag">UI/UX</span>
+            </div>
+
+            <a href="#" class="project-btn">🔗 View</a>
+        </div>
+
+        <!-- Project 2 -->
+
+        <div class="project-card" data-aos="zoom-in">
+            <div class="project-title">Expense Manager</div>
+            <div class="project-desc">
+                Tracks spending habits, categories, and stores user data — simple budgeting tool.
+            </div>
+
+            <div class="tag-wrap">
+                <span class="tag">Python</span>
+                <span class="tag">Local DB</span>
+                <span class="tag">Analytics</span>
+            </div>
+
+            <a href="#" class="project-btn">🔗 View</a>
+        </div>
+
+        <!-- Project 3 -->
+
+        <div class="project-card" data-aos="zoom-in">
+            <div class="project-title">Weather App</div>
+            <div class="project-desc">
+                Real-time weather & temperature API integration with responsive UI.
+            </div>
+
+            <div class="tag-wrap">
+                <span class="tag">JavaScript</span>
+                <span class="tag">API</span>
+                <span class="tag">Responsive UI</span>
+            </div>
+
+            <a href="#" class="project-btn">🔗 View</a>
+        </div>
+
     </div>
-    {% endfor %}
+
+    <a href="/" class="back-btn">⬅ Back to Home</a>
+
 </div>
 
-{% endblock %}
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>AOS.init({duration:800, once:true})</script>
+
+</body>
+</html>
