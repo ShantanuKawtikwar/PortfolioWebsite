@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+
+:root {
+    --blue: #38A3F1;
+    --beige: #F5A623;
+    --panel: rgba(255,255,255,0.85);
+    --radius: 18px;
+    --text-dark: #1F2933;
+}
+
+body{
+    margin:0;
+    font-family:'Poppins',sans-serif;
+    background:linear-gradient(135deg,#E3F2FD,#FFF4E0);
+    display:flex;
+    min-height:100vh;
+}
+
+/* ===== SIDEBAR ===== */
+
+.sidebar{
+    width:240px;
+    background:rgba(255,255,255,0.55);
+    backdrop-filter:blur(20px);
+    border-right:1px solid rgba(255,255,255,0.2);
+    padding:1.5rem;
+    display:flex;
+    flex-direction:column;
+}
+
+.sidebar h2{
+    font-size:1.2rem;
+    font-weight:600;
+    background:linear-gradient(135deg,var(--blue),var(--beige));
+    -webkit-background-clip:text;
+    color:transparent;
+    margin-bottom:2rem;
+    text-align:center;
+}
+
+.nav-item{
+    display:flex;
+    align-items:center;
+    gap:.8rem;
+    padding:.75rem;
+    border-radius:var(--radius);
+    cursor:pointer;
+    transition:.25s;
+    font-size:.9rem;
+    color:#555;
+}
+
+.nav-item:hover{
+    background:rgba(255,255,255,0.9);
+    transform:translateX(6px);
+    box-shadow:0 6px 18px rgba(0,0,0,0.08);
+    color:#000;
+}
+
+/* ===== MAIN PANEL ===== */
+
+.main{
+    flex:1;
+    padding:2rem;
+}
+
+.dashboard-title{
+    font-size:2rem;
+    font-weight:600;
+    color:var(--text-dark);
+    margin-bottom:1.2rem;
+}
+
+.card-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:1.5rem;
+}
+
+.card{
+    padding:2rem;
+    background:var(--panel);
+    border-radius:var(--radius);
+    backdrop-filter:blur(16px);
+    border:1px solid rgba(255,255,255,0.35);
+    box-shadow:0 12px 30px rgba(0,0,0,0.06);
+    transition:.35s;
+    cursor:pointer;
+    text-align:center;
+}
+
+.card:hover{
+    transform:translateY(-6px);
+    box-shadow:0 16px 40px rgba(0,0,0,0.12);
+    border-color:var(--blue);
+}
+
+.card-icon{
+    font-size:2rem;
+    margin-bottom:.6rem;
+}
+
+.card span{
+    font-size:1.05rem;
+    font-weight:600;
+}
+
+/* Logout btn */
+
+.logout{
+    margin-top:auto;
+    padding:.9rem;
+    border-radius:14px;
+    border:none;
+    background:#FF5A5F;
+    color:white;
+    font-size:.9rem;
+    cursor:pointer;
+    transition:.25s;
+}
+
+.logout:hover{
+    transform:scale(1.03);
+    background:#e64047;
+}
+
+</style>
+</head>
+<body>
+
+<!-- Sidebar -->
+<div class="sidebar">
+    <h2>Admin Panel</h2>
+
+    <div onclick="location.href='/admin/add/project'" class="nav-item">📌 Add Project</div>
+    <div onclick="location.href='/admin/add/cert'" class="nav-item">🎓 Add Certification</div>
+    <div onclick="location.href='/admin/add/timeline'" class="nav-item">📅 Add Timeline Entry</div>
+
+    <button class="logout" onclick="location.href='/logout'">🚪 Logout</button>
+</div>
+
+<!-- Main Section -->
+<div class="main">
+    <div class="dashboard-title">Welcome, Admin 👋</div>
+
+    <div class="card-grid">
+
+        <div class="card" onclick="location.href='/admin/add/project'">
+            <div class="card-icon">⚙️</div>
+            <span>Add Project</span>
+        </div>
+
+        <div class="card" onclick="location.href='/admin/add/cert'">
+            <div class="card-icon">📜</div>
+            <span>Add Certification</span>
+        </div>
+
+        <div class="card" onclick="location.href='/admin/add/timeline'">
+            <div class="card-icon">📍</div>
+            <span>Add Timeline Entry</span>
+        </div>
+
+    </div>
+</div>
+
+</body>
+</html>
