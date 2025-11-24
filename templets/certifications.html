@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2 style="text-align:center;">🎓 Certifications</h2>
+
+<ul class="cert-list">
+{% for cert in certs %}
+    <li>{{ cert }}</li>
+{% endfor %}
+</ul>
+
+{% endblock %}
