@@ -1,1 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Contact | Shantanu Kawtikwar</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+<style>
+
+:root {
+    --blue: #38A3F1;
+    --beige: #F5A623;
+    --muted: #6B7280;
+    --bg: #F3F6FB;
+    --panel: #FFFFFF;
+    --radius: 18px;
+}
+
+body{
+    margin:0;
+    font-family:'Poppins',sans-serif;
+    background:linear-gradient(135deg,#E3F2FD,#FFF4E0);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:100vh;
+}
+
+.container{
+    background:rgba(255,255,255,0.85);
+    border:1px solid #E6E7EF;
+    border-radius:var(--radius);
+    box-shadow:0 12px 35px rgba(0,0,0,.06);
+    padding:2.5rem;
+    width:90%;
+    max-width:480px;
+    backdrop-filter:blur(14px);
+    animation:fadeUp .8s ease;
+}
+
+@keyframes fadeUp{
+    from{opacity:0;transform:translateY(20px);}
+    to{opacity:1;transform:translateY(0);}
+}
+
+.title{
+    text-align:center;
+    font-size:1.9rem;
+    font-weight:600;
+    background:linear-gradient(135deg,var(--blue),var(--beige));
+    -webkit-background-clip:text;
+    color:transparent;
+}
+
+.subtitle{
+    text-align:center;
+    font-size:.9rem;
+    color:var(--muted);
+    margin-bottom:2rem;
+}
+
+/* FORM INPUT UI */
+
+input,textarea{
+    width:100%;
+    border-radius:14px;
+    border:1px solid #D4D7E2;
+    padding:.8rem 1rem;
+    font-size:.9rem;
+    outline:none;
+    color:#374151;
+    background:#FAFBFF;
+    transition:.25s;
+}
+
+input:focus,textarea:focus{
+    border-color:var(--blue);
+    box-shadow:0 0 10px rgba(56,163,241,.25);
+    transform:scale(1.01);
+}
+
+textarea{
+    height:120px;
+    resize:none;
+}
+
+/* BUTTON */
+
+button{
+    width:100%;
+    padding:.9rem;
+    margin-top:1rem;
+    border-radius:50px;
+    background:linear-gradient(135deg,var(--blue),var(--beige));
+    border:none;
+    color:white;
+    font-weight:600;
+    font-size:.95rem;
+    cursor:pointer;
+    transition:.25s;
+}
+
+button:hover{
+    transform:translateY(-2px);
+    box-shadow:0 10px 20px rgba(56,163,241,.35);
+}
+
+/* SUCCESS MESSAGE */
+
+.success-box{
+    display:none;
+    text-align:center;
+    padding:1rem;
+    border-radius:var(--radius);
+    margin-top:1rem;
+    color:#065F46;
+    background:#D1FAE5;
+    font-weight:500;
+    animation:pop .6s;
+}
+
+@keyframes pop{
+    0%{transform:scale(.8);opacity:0;}
+    100%{transform:scale(1);opacity:1;}
+}
+
+/* BACK BUTTON */
+
+.back{
+    display:block;
+    margin-top:2rem;
+    text-align:center;
+    text-decoration:none;
+    color:#1e3a8a;
+    font-size:.9rem;
+}
+
+.back:hover{
+    text-decoration:underline;
+}
+</style>
+</head>
+<body>
+
+<div class="container" data-aos="fade-up">
+
+    <h1 class="title">Let's Connect 📩</h1>
+    <p class="subtitle">Have a question, idea or opportunity? Send a message.</p>
+
+    <form id="contactForm" action="#" method="POST">
+        <input type="text" name="name" placeholder="Your Name" required>
+        <br><br>
+        <input type="email" name="email" placeholder="Your Email" required>
+        <br><br>
+        <textarea name="message" placeholder="Your Message..." required></textarea>
+
+        <button type="submit">Send Message</button>
+    </form>
+
+    <div class="success-box" id="successBox">
+        ✅ Message sent successfully! I'll reply soon.
+    </div>
+
+    <a href="/" class="back">⬅ Back to Home</a>
+
+</div>
+
+<script>
+document.getElementById("contactForm").addEventListener("submit", function(e){
+    e.preventDefault();
+    document.getElementById("successBox").style.display = "block";
+    this.reset();
+});
+</script>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>AOS.init({duration:900,once:true});</script>
+
+</body>
+</html>
 
