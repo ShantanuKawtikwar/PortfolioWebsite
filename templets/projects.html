@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2 style="text-align:center;">📌 Projects</h2>
+
+<div class="project-container">
+    {% for project in projects %}
+    <div class="card">
+        <h3>{{ project.name }}</h3>
+        <p>{{ project.date }}</p>
+        <p style="font-size:14px;opacity:.7;">{{ project.desc }}</p>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock %}
