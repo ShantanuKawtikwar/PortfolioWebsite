@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2 style="text-align:center;">🕓 Timeline Journey</h2>
+
+<div class="timeline-box">
+    {% for item in timeline %}
+    <div class="timeline-item">
+        <span class="dot"></span>
+        <div>
+            <strong>{{ item.month }}</strong> — {{ item.event }}
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock %}
