@@ -1,1 +1,154 @@
+:root {
+    --primary-blue: #38A3F1;
+    --light-blue: #E3F2FD;
+    --warm-orange: #F5A623;
+    --warm-beige: #FFF4E0;
+    --glass-bg: rgba(255, 255, 255, 0.25);
+    --glass-border: rgba(255, 255, 255, 0.5);
+    --text-dark: #2c3e50;
+    --font-main: 'Poppins', sans-serif;
+}
 
+body {
+    font-family: var(--font-main);
+    background: linear-gradient(135deg, var(--light-blue) 0%, var(--warm-beige) 100%);
+    color: var(--text-dark);
+    overflow-x: hidden;
+    min-height: 100vh;
+}
+
+/* Glassmorphism Utility */
+.glass {
+    background: var(--glass-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1);
+}
+
+/* Navbar */
+.navbar {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255,255,255,0.8);
+}
+.nav-link {
+    color: var(--text-dark) !important;
+    font-weight: 500;
+    position: relative;
+    transition: 0.3s;
+}
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background: linear-gradient(90deg, var(--primary-blue), var(--warm-orange));
+    transition: width 0.3s;
+}
+.nav-link:hover::after {
+    width: 100%;
+}
+
+/* Hero Section */
+.hero-section {
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+.hero-card {
+    padding: 3rem;
+    position: relative;
+    overflow: hidden;
+}
+.typing-text {
+    color: var(--primary-blue);
+    font-weight: 700;
+}
+
+/* Orbit Animation */
+.orbit-container {
+    position: absolute;
+    top: -50px;
+    right: -50px;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 2px dashed var(--warm-orange);
+    animation: spin 10s linear infinite;
+    opacity: 0.5;
+}
+@keyframes spin { 100% { transform: rotate(360deg); } }
+
+/* Cards (Projects/Certs) */
+.custom-card {
+    transition: transform 0.3s, box-shadow 0.3s;
+    background: rgba(255, 255, 255, 0.6);
+    border: none;
+    border-radius: 15px;
+    overflow: hidden;
+}
+.custom-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(56, 163, 241, 0.2);
+}
+.card-img-top {
+    height: 200px;
+    object-fit: cover;
+}
+
+/* Buttons */
+.btn-pastel {
+    background: linear-gradient(45deg, var(--primary-blue), var(--warm-orange));
+    border: none;
+    color: white;
+    padding: 10px 25px;
+    border-radius: 50px;
+    transition: 0.3s;
+}
+.btn-pastel:hover {
+    transform: scale(1.05);
+    color: white;
+    box-shadow: 0 5px 15px rgba(245, 166, 35, 0.4);
+}
+
+/* Timeline */
+.timeline-container {
+    position: relative;
+    padding: 2rem 0;
+}
+.timeline-line {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: linear-gradient(to bottom, var(--primary-blue), var(--warm-orange));
+    transform: translateX(-50%);
+}
+.timeline-item {
+    margin-bottom: 3rem;
+    position: relative;
+}
+.timeline-dot {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    width: 20px;
+    height: 20px;
+    background: white;
+    border: 4px solid var(--warm-orange);
+    border-radius: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+    transition: 0.3s;
+}
+.timeline-item:hover .timeline-dot {
+    background: var(--primary-blue);
+    transform: translateX(-50%) scale(1.3);
+    box-shadow: 0 0 15px var(--primary-blue);
+}
