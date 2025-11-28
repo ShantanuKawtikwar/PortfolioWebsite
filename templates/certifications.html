@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container py-5">
+    <h2 class="text-center mb-5 fw-bold">Certifications</h2>
+    <div class="row g-4">
+        {% for c in certs %}
+        <div class="col-md-3" data-aos="zoom-in">
+            <div class="card custom-card h-100 text-center p-3">
+                {% if c.image %}
+                <img src="{{ url_for('static', filename='uploads/' + c.image) }}" class="img-fluid rounded mb-3 shadow-sm" alt="Cert">
+                {% endif %}
+                <h5 class="fw-bold">{{ c.title }}</h5>
+                <p class="text-primary mb-0">{{ c.issuer }}</p>
+                <small class="text-muted">{{ c.date }}</small>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
