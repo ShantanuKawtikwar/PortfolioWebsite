@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="hero-section container">
+    <div class="row align-items-center w-100">
+        <div class="col-lg-6" data-aos="fade-right">
+            <div class="glass hero-card">
+                <div class="orbit-container"></div>
+                <h1 class="display-4 fw-bold">Hi, I'm Shantanu</h1>
+                <h3 class="mt-3">I am a <span class="typing-text"></span></h3>
+                <p class="mt-4 lead text-secondary">
+                    Crafting intelligent solutions using AI, Python, and Modern Web Technologies.
+                </p>
+                <div class="mt-4">
+                    <a href="/projects" class="btn btn-pastel me-3">View Work</a>
+                    <a href="/contact" class="btn btn-outline-dark rounded-pill">Contact Me</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 text-center" data-aos="fade-left">
+            <img src="https://cdn-icons-png.flaticon.com/512/4712/4712109.png" alt="AI Icon" class="img-fluid" style="max-width: 400px; filter: drop-shadow(0 10px 15px rgba(56,163,241,0.3));">
+        </div>
+    </div>
+</section>
+
+<section class="container py-5">
+    <h2 class="text-center mb-5" data-aos="fade-up">Tech Stack</h2>
+    <div class="d-flex justify-content-center flex-wrap gap-3" data-aos="zoom-in">
+        <span class="badge bg-white text-dark shadow-sm p-3 rounded-pill"><i class="fab fa-python text-primary"></i> Python</span>
+        <span class="badge bg-white text-dark shadow-sm p-3 rounded-pill"><i class="fab fa-aws text-warning"></i> AWS</span>
+        <span class="badge bg-white text-dark shadow-sm p-3 rounded-pill"><i class="fas fa-brain text-danger"></i> Machine Learning</span>
+        <span class="badge bg-white text-dark shadow-sm p-3 rounded-pill"><i class="fab fa-flask text-secondary"></i> Flask</span>
+        <span class="badge bg-white text-dark shadow-sm p-3 rounded-pill"><i class="fab fa-html5 text-danger"></i> HTML5</span>
+    </div>
+</section>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    var typed = new Typed('.typing-text', {
+        strings: ["AI Engineer", "Web Developer", "Cloud Enthusiast", "ML Specialist"],
+        typeSpeed: 50,
+        backSpeed: 30,
+        loop: true
+    });
+</script>
+{% endblock %}
