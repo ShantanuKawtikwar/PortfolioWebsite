@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container py-5">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2>Dashboard</h2>
+        <a href="/logout" class="btn btn-danger btn-sm">Logout</a>
+    </div>
+
+    <div class="glass p-4 mb-5">
+        <div class="d-flex justify-content-between">
+            <h4>Timeline</h4>
+            <a href="/admin/add/timeline" class="btn btn-success btn-sm">+ Add</a>
+        </div>
+        <table class="table mt-3">
+            <thead><tr><th>Year</th><th>Title</th><th>Action</th></tr></thead>
+            <tbody>
+                {% for t in timeline %}
+                <tr>
+                    <td>{{ t.year }}</td>
+                    <td>{{ t.title }}</td>
+                    <td><a href="/admin/delete/timeline/{{ t.id }}" class="text-danger">Delete</a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <div class="glass p-4 mb-5">
+        <div class="d-flex justify-content-between">
+            <h4>Projects</h4>
+            <a href="/admin/add/project" class="btn btn-success btn-sm">+ Add</a>
+        </div>
+        <table class="table mt-3">
+            <thead><tr><th>Title</th><th>Action</th></tr></thead>
+            <tbody>
+                {% for p in projects %}
+                <tr>
+                    <td>{{ p.title }}</td>
+                    <td><a href="/admin/delete/project/{{ p.id }}" class="text-danger">Delete</a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    
+     <div class="glass p-4">
+        <div class="d-flex justify-content-between">
+            <h4>Certifications</h4>
+            <a href="/admin/add/cert" class="btn btn-success btn-sm">+ Add</a>
+        </div>
+        <table class="table mt-3">
+            <thead><tr><th>Title</th><th>Issuer</th><th>Action</th></tr></thead>
+            <tbody>
+                {% for c in certs %}
+                <tr>
+                    <td>{{ c.title }}</td>
+                    <td>{{ c.issuer }}</td>
+                    <td><a href="/admin/delete/cert/{{ c.id }}" class="text-danger">Delete</a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}
