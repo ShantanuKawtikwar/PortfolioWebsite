@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container py-5">
+    <h2 class="text-center mb-5 fw-bold" style="color: var(--primary-blue);">My Journey</h2>
+    
+    <div class="timeline-container">
+        <div class="timeline-line"></div>
+        
+        {% for item in timeline %}
+        <div class="row timeline-item align-items-center" data-aos="fade-up">
+            <div class="timeline-dot"></div>
+            
+            {% if loop.index % 2 != 0 %}
+                <div class="col-md-5 text-end pe-5">
+                    <div class="glass p-4">
+                        <h4 class="fw-bold">{{ item.year }}</h4>
+                        <h5 class="text-primary">{{ item.title }}</h5>
+                        <p class="text-muted fw-bold mb-1">{{ item.organization }}</p>
+                        <small>{{ item.details }}</small>
+                    </div>
+                </div>
+                <div class="col-md-2"></div>
+                <div class="col-md-5"></div>
+            {% else %}
+                <div class="col-md-5"></div>
+                <div class="col-md-2"></div>
+                <div class="col-md-5 ps-5">
+                    <div class="glass p-4">
+                        <h4 class="fw-bold">{{ item.year }}</h4>
+                        <h5 class="text-primary">{{ item.title }}</h5>
+                        <p class="text-muted fw-bold mb-1">{{ item.organization }}</p>
+                        <small>{{ item.details }}</small>
+                    </div>
+                </div>
+            {% endif %}
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
