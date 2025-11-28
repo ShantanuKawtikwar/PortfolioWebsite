@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container py-5">
+    <div class="glass p-5 mx-auto" style="max-width: 600px;">
+        <h3 class="mb-4 text-capitalize">Add {{ type }}</h3>
+        <form method="POST" enctype="multipart/form-data">
+            
+            {% if type == 'project' %}
+            <input type="text" name="title" class="form-control mb-3" placeholder="Project Title" required>
+            <textarea name="desc" class="form-control mb-3" placeholder="Description"></textarea>
+            <input type="text" name="tech" class="form-control mb-3" placeholder="Tech Stack (e.g. Python, AWS)">
+            <label>Image</label>
+            <input type="file" name="image" class="form-control mb-3">
+            
+            {% elif type == 'cert' %}
+            <input type="text" name="title" class="form-control mb-3" placeholder="Certificate Name" required>
+            <input type="text" name="issuer" class="form-control mb-3" placeholder="Issuer (e.g. Coursera)" required>
+            <input type="text" name="date" class="form-control mb-3" placeholder="Date (e.g. Dec 2023)">
+            <label>Thumbnail</label>
+            <input type="file" name="image" class="form-control mb-3">
+
+            {% elif type == 'timeline' %}
+            <input type="text" name="year" class="form-control mb-3" placeholder="Year/Month" required>
+            <input type="text" name="title" class="form-control mb-3" placeholder="Role/Event Title" required>
+            <input type="text" name="org" class="form-control mb-3" placeholder="Organization" required>
+            <textarea name="details" class="form-control mb-3" placeholder="Details..."></textarea>
+            {% endif %}
+
+            <button type="submit" class="btn btn-pastel w-100">Save</button>
+        </form>
+    </div>
+</div>
+{% endblock %}
