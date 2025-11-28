@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container py-5">
+    <h2 class="text-center mb-5 fw-bold">Projects</h2>
+    <div class="row g-4">
+        {% for p in projects %}
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="{{ loop.index * 100 }}">
+            <div class="card custom-card h-100">
+                {% if p.image %}
+                <img src="{{ url_for('static', filename='uploads/' + p.image) }}" class="card-img-top" alt="Project Image">
+                {% else %}
+                <div class="bg-secondary text-white d-flex align-items-center justify-content-center" style="height: 200px;">No Image</div>
+                {% endif %}
+                <div class="card-body">
+                    <h5 class="card-title fw-bold">{{ p.title }}</h5>
+                    <p class="card-text small text-muted">{{ p.description }}</p>
+                    {% if p.tech_stack %}
+                    <div class="mt-2">
+                        <span class="badge bg-light text-dark border">{{ p.tech_stack }}</span>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
